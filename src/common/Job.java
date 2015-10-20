@@ -49,6 +49,8 @@ public class Job {
     }
 
     private void setMagic(){
+        Random rnd = new Random();
+    	rnd.setSeed(System.currentTimeMillis());
         this.hp = rnd.nextInt(50) + 300;
         this.attack = rnd.nextInt(20) + 140;
         this.defense = rnd.nextInt(10) + 50;
@@ -60,6 +62,8 @@ public class Job {
     }
 
     private void setRange(){
+        Random rnd = new Random();
+    	rnd.setSeed(System.currentTimeMillis());
         this.hp = rnd.nextInt(50) + 350;
         this.attack = rnd.nextInt(20) + 90;
         this.defense = rnd.nextInt(10) + 80;
