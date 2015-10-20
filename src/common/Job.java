@@ -1,6 +1,7 @@
 package common;
 
 import javafx.scene.image.Image;
+import java.util.*;
 
 public class Job {
     private int hp;
@@ -13,15 +14,14 @@ public class Job {
     private String action3;
 
     public Job(String job){
-        if(job == "Melee"){
+        if(job == "Melee")
             setMelee();
-        }
-        if(job == "Magic"){
+            
+        if(job == "Magic")
             setMagic();
-        }
-        if(job == "Range"){
+            
+        if(job == "Range")
             setRange();
-        }
     }
 
     public Job(String job, int hp, int attack, int defense, String action1, String action2, String action3, String image){
@@ -36,9 +36,11 @@ public class Job {
     }
 
     private void setMelee(){
-        this.hp = 400;
-        this.attack = 100;
-        this.defense = 60;
+        Random rnd = new Random();
+    	rnd.setSeed(System.currentTimeMillis());
+        this.hp = rnd.nextInt(50) + 400;
+        this.attack = rnd.nextInt(20) + 100;
+        this.defense = rnd.nextInt(10) + 60;
         this.job = "Melee";
         this.action1 = "Attack";
         this.action2 = "Defend";
@@ -47,9 +49,9 @@ public class Job {
     }
 
     private void setMagic(){
-        this.hp = 300;
-        this.attack = 140;
-        this.defense = 50;
+        this.hp = rnd.nextInt(50) + 300;
+        this.attack = rnd.nextInt(20) + 140;
+        this.defense = rnd.nextInt(10) + 50;
         this.job = "Magic";
         this.action1 = "Attack";
         this.action2 = "Guard";
@@ -58,9 +60,9 @@ public class Job {
     }
 
     private void setRange(){
-        this.hp = 350;
-        this.attack = 90;
-        this.defense = 80;
+        this.hp = rnd.nextInt(50) + 350;
+        this.attack = rnd.nextInt(20) + 90;
+        this.defense = rnd.nextInt(10) + 80;
         this.job = "Range";
         this.action1 = "Attack";
         this.action2 = "Hide";
@@ -68,35 +70,27 @@ public class Job {
         this.image = new Image("/ui/images/range.png", 50, 75, false, false);
     }
 
-    public int getHp(){
+    public int getHp()
         return hp;
-    }
 
-    public int getDefense(){
+    public int getDefense()
         return defense;
-    }
 
-    public int getAttack(){
+    public int getAttack()
         return attack;
-    }
 
-    public String getJob(){
+    public String getJob()
         return job;
-    }
 
-    public String getAction1(){
+    public String getAction1()
         return action1;
-    }
 
-    public String getAction2(){
+    public String getAction2()
         return action2;
-    }
 
-    public String getAction3(){
+    public String getAction3()
         return action3;
-    }
 
-    public Image getImage(){
+    public Image getImage()
         return image;
-    }
 }
