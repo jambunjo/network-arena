@@ -4,7 +4,7 @@ public class Combat {
 
     public static void attack(Player user, Player target){
         user.setGuarding(false);
-        int damage = (user.getSelectedClass().getAttack() / target.getSelectedClass().getDefense()) * 80;
+        int damage = ((user.getSelectedClass().getAttack() - target.getSelectedClass().getDefense()) * -1);
         if(weakness(user, target)){
             damage*=2;
         }
@@ -18,7 +18,7 @@ public class Combat {
     public static void special(Player user, Player players[]){
         user.setGuarding(false);
         for(int i = 0; i < players.length; i++){
-            int damage = (user.getSelectedClass().getAttack() / players[i].getSelectedClass().getDefense()) * 40;
+            int damage = ((user.getSelectedClass().getAttack() - players[i].getSelectedClass().getDefense()) * -1)/3;
             applyDamage(players[i], damage);
         }
 
